@@ -29,4 +29,10 @@ public class Book {
         this.title = title;
         this.author = author;
     }
+    public Book(String title, String author, int publishingYear, String isbn) {
+        this.title = title;
+        this.author = author;
+        this.publishingYear = publishingYear;
+        this.isbn = isbn;
+    }
 }
