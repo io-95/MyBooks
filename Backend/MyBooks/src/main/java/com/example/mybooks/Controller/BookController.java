@@ -1,34 +1,45 @@
 package com.example.mybooks.Controller;
+import com.example.mybooks.Model.Book;
+import com.example.mybooks.Service.BookService;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.awt.print.Book;
 import java.util.List;
+import java.util.UUID;
 
 
 @RestController
 public class BookController {
+    private final BookService service;
+
+    BookController(BookService service) {
+        this.service = service;
+    }
+
     @GetMapping("/books")
     List<Book> all(){
-        return null;
+        return service.findAll();
     }
 
     @GetMapping("/books/{id}")
-    Book findById(@PathVariable String id){
-        return null;
+    ResponseEntity<Book> findById(@PathVariable String id){
+        return service.findById(UUID.fromString(id))
+                .map(ResponseEntity::ok)
+                .orElse(ResponseEntity.notFound().build());
     }
 
-    @PostMapping("/books/")
+    @PostMapping("/books")
     Book createNewBook(@RequestBody Book newBook){
-        return null;
+        return service.save(newBook);
     }
 
     @PutMapping("/books/{id}")
     Book updateBook(@PathVariable String id, @RequestBody Book newBook){
-        return null;
+        return service.updateBook(newBook, UUID.fromString(id));
     }
 
     @DeleteMapping("/books/{id}")
     void deleteBook(@PathVariable String id){
-        return;
+        service.deleteBook(UUID.fromString(id));
     }
 }
