@@ -15,4 +15,6 @@ public class BookController {
     Book findById(@PathVariable String id){
         return null;
     }
+
+    @PostMapping("/books/")
 }
