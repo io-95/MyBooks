@@ -28,7 +28,7 @@ public class BookController {
                 .orElse(ResponseEntity.notFound().build());
     }
 
-    @PostMapping("/books/")
+    @PostMapping("/books")
     Book createNewBook(@RequestBody Book newBook){
         return service.save(newBook);
     }
