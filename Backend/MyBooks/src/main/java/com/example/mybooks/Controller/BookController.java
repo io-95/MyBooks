@@ -20,4 +20,9 @@ public class BookController {
     Book createNewBook(@RequestBody Book newBook){
         return null;
     }
+
+    @PutMapping("/books/{id}")
+    Book updateBook(@PathVariable String id, @RequestBody Book newBook){
+        return null;
+    }
 }
