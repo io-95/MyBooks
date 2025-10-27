@@ -51,3 +51,11 @@ paths:
 
   /books/{id}:
     delete:
+      summary: Delete a specific book from the Data Base
+      responses:
+        '200':
+          description: OK
+        '404':
+          description: Not Found
+        '500':
+          description: Internal Server Error
