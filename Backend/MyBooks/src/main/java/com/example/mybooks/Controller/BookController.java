@@ -1,9 +1,12 @@
 package com.example.mybooks.Controller;
 import com.example.mybooks.Model.Book;
 import com.example.mybooks.Service.BookService;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
+import java.util.UUID;
 
 
 @RestController
@@ -20,8 +23,10 @@ public class BookController {
     }
 
     @GetMapping("/books/{id}")
-    Book findById(@PathVariable String id){
-        return null;
+    ResponseEntity<Book> findById(@PathVariable String id){
+        return service.findById(UUID.fromString(id))
+                .map(ResponseEntity::ok)
+                .orElse(ResponseEntity.notFound().build());
     }
 
     @PostMapping("/books/")
