@@ -1,15 +1,22 @@
 package com.example.mybooks.Controller;
+import com.example.mybooks.Model.Book;
+import com.example.mybooks.Service.BookService;
 import org.springframework.web.bind.annotation.*;
 
-import java.awt.print.Book;
 import java.util.List;
 
 
 @RestController
 public class BookController {
+    private final BookService service;
+
+    BookController(BookService service) {
+        this.service = service;
+    }
+
     @GetMapping("/books")
     List<Book> all(){
-        return null;
+        return service.findAll();
     }
 
     @GetMapping("/books/{id}")
