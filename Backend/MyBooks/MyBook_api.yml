@@ -17,6 +17,14 @@ paths:
 
   /books/{id}:
     get:
+      summary: Get a single book by id
+      responses:
+        '200':
+          description: OK
+        '404':
+          description: Not Found
+        '500':
+          description: Internal Server Error
 
   /books:
     post:
