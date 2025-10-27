@@ -1,13 +1,18 @@
 package com.example.mybooks.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.awt.print.Book;
 
 
 @RestController
 public class BookController {
     @GetMapping("/books")
     List<Book> all(){
-        return;
+        return null;
+    }
+
+    @GetMapping("/books/{id}")
+    Book findById(@PathVariable String id){
+        return null;
     }
 }
