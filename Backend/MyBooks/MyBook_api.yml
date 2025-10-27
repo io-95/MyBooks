@@ -28,6 +28,15 @@ paths:
 
   /books:
     post:
+      summary: Add a new Book entity to the Data Base
+      responses:
+        '200':
+          description: OK
+        '400':
+          description: Bad Request
+        '500':
+          description: Internal Server Error
+
 
   /books/{id}:
     put:
