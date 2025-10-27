@@ -40,6 +40,14 @@ paths:
 
   /books/{id}:
     put:
+      summary: Change an existing Book entry in the Data Base
+      responses:
+        200:
+          description: OK
+        '404':
+          description: Not Found
+        '500':
+          description: Internal Server Error
 
   /books/{id}:
     delete:
