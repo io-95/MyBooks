@@ -17,4 +17,7 @@ public class BookController {
     }
 
     @PostMapping("/books/")
+    Book createNewBook(@RequestBody Book newBook){
+        return null;
+    }
 }
