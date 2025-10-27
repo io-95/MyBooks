@@ -1,0 +1,28 @@
+openapi: '3.0.3'
+info:
+  title: API Title
+  version: '1.0'
+servers:
+  - url: https://localhost:8080/api/v1
+
+paths:
+  /books:
+    get:
+      summary: Get a list of all books in the Data Base
+      responses:
+        '200':
+          description: OK
+        '500':
+          description: Internal Server Error
+
+  /books/{id}:
+    get:
+
+  /books:
+    post:
+
+  /books/{id}:
+    put:
+
+  /books/{id}:
+    delete:
