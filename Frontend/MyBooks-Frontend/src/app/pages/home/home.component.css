@@ -8,7 +8,8 @@
 .header{
   font-family: 'Roboto', sans-serif;
   padding-left: 96px;
-  font-size: 30px
+  font-size: 30px;
+  color: #171a1f;
 }
 
 .book_icon{

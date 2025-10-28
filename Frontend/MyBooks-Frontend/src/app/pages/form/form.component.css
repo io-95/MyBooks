@@ -8,14 +8,18 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  background: white;
+  border-color: #dee1e6;
 }
 
 .header{
   padding-top: 24px;
+  color: #171a1f;
 }
 
 .text{
   margin: 12px;
+  color: #171a1f;
 }
 
 .input{
