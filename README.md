@@ -24,6 +24,10 @@ Diese können bei Bedarf manuell über das Webinterface unter `http://localhost:
 - **Frontend:** `npm install && ng serve`
 - **Backend:** `./gradlew bootRun`
 
+## Annmerkung
+
+Als REST URL wurde `/api/v1/books` verwendet. Es wurde auch eine Versionsnummer hinzugefügt, um die API um sie nach aktuellem Best Practice zu designen.
+
 ## Bekannte Einschränkungen
 
 Aufgrund von Zeitmangel konnten die Bonusaufgaben, die in der Datei  
