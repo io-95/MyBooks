@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {MatTableModule} from '@angular/material/table';
 import { CommonModule } from '@angular/common';
+import {MatIconModule} from '@angular/material/icon';
 
 export interface BookList {
   id: string;
@@ -22,10 +23,10 @@ const BOOK_DATA: BookList[] = [
   selector: 'app-book-list',
   templateUrl: './book-list.component.html',
   styleUrls: ['./book-list.component.css'],
-  imports: [MatTableModule, CommonModule]
+  imports: [MatTableModule, CommonModule, MatIconModule]
 })
 
 export class BookListComponent {
-  displayedColumns: string[] = ['id', 'title', 'author', 'publishingYear', 'isbn'];
+  displayedColumns: string[] = ['id', 'title', 'author', 'publishingYear', 'isbn', 'actions'];
   dataSource = BOOK_DATA;
 }
