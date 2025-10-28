@@ -53,6 +53,6 @@ export class BookListComponent implements OnInit {
           this.dataSource = old; // rollback
           console.error('Löschen fehlgeschlagen', err);
         }
-    });
+     });
   }
 }
