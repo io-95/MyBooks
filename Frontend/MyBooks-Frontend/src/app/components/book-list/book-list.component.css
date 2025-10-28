@@ -1,8 +1,10 @@
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+
 .table-container {
   width: 87%;
   margin-top: 3%;
   margin-left: 96px;
-  radius: 6px;
+  border-radius: 6px;
 }
 
 .trash{

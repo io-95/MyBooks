@@ -7,7 +7,7 @@ import { RouterOutlet } from '@angular/router';
   selector: 'app-root',
   imports: [RouterOutlet, HeaderComponent],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrls  : ['./app.component.css']
 })
 export class AppComponent {
   title = 'MyBooks-Frontend';
