@@ -2,11 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatTableModule } from '@angular/material/table';
 import { BookService, Book } from '../../services/book.service';
+import {MatIconModule} from '@angular/material/icon';
+
 
 @Component({
   selector: 'app-book-list',
   standalone: true,
-  imports: [CommonModule, MatTableModule],
+  imports: [CommonModule, MatTableModule, MatIconModule],
   templateUrl: './book-list.component.html',
   styleUrls: ['./book-list.component.css']
 })
