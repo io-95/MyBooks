@@ -1,5 +1,6 @@
-table {
-  width: 85%;
-  margin-top: 2%;
+.table-container {
+  width: 87%;
+  margin-top: 3%;
+  margin-left: 96px;
   radius: 6px;
 }
