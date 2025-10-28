@@ -15,11 +15,16 @@
   font-size: 22px;
   font-weight: 700;
   margin: 0;
-  margin-left: 18px;
+  margin-left: 6px;
 }
 
 .page-header {
   font-size: small;
   font-weight: normal;
   margin: 0 auto;
+}
+
+.toolbar{
+  background: white;
+  padding: 1%;
 }
