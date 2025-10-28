@@ -29,3 +29,9 @@
   position: fixed;
   right: 100px;
 }
+
+.input{
+  height: 40px;
+  width: 512px;
+  padding-left: 96px;
+}
