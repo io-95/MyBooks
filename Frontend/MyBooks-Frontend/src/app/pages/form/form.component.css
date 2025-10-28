@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+.card{
+  font-family: roboto, sans-serif;
+  width: 672px;
+  padding-bottom: 30px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.header{
+  padding-top: 24px;
+}
+
+.text{
+  margin: 12px;
+}
+
+.input{
+  margin: 12px;
+  width: 624px;
+}
+
+.cancel_button{
+  height: 40px;
+  color: #171a1f;
+  border-color: #dee1e6;
+  background: white;
+  border-radius: 6px
+}
+
+.save_button{
+  height: 40px;
+  font-color: white;
+  background: #396FC8;
+  color: white;
+  border-radius: 6px
+}
+
+.button_div{
+  margin-left: 500px;
+}
