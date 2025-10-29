@@ -24,6 +24,6 @@ export class HomeComponent {
   constructor(private router: Router) {}
 
   switchToFormPage(){
-    this.router.navigate(['/ziel']);
+    this.router.navigate(['/form']);
   }
 }
