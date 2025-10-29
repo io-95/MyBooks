@@ -1,0 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+.span{
+  display: flex;
+  align-items: center;
+}
+
+.header{
+  font-family: 'Roboto', sans-serif;
+  padding-left: 96px;
+  font-size: 30px;
+  color: #171a1f;
+}
+
+.book_icon{
+  background: #396FC8;
+  font-variation-settings:
+    'FILL' 0
+}
+
+.button{
+  background: #396FC8;
+  color: white;
+  border-radius: 6px;
+  border: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 40px;
+  position: fixed;
+  right: 100px;
+}
+
+.input{
+  height: 40px;
+  width: 512px;
+  padding-left: 96px;
+}

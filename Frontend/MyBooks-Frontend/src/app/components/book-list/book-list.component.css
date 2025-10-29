@@ -1,0 +1,16 @@
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+
+.table-container {
+  width: 87%;
+  margin-top: 3%;
+  margin-left: 96px;
+  border-radius: 6px;
+}
+
+.trash{
+  color: #B84455;
+}
+
+.pen{
+  color: #CE7162;
+}
