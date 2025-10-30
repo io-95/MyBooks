@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import {MatToolbarModule} from '@angular/material/toolbar';
 
 @Component({
@@ -9,5 +10,11 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 })
 
 export class HeaderComponent {
-    title = 'Book List';
+  constructor(private router: Router) {}
+
+  title = 'Book List'
+
+  backToLandingPage(){
+    this.router.navigate(['']);
+  }
 }

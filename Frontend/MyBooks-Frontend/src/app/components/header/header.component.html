@@ -1,7 +1,11 @@
 <mat-toolbar class="toolbar">
-  <mat-toolbar-row class="header-elements">
-    <img src="icon_small.png" alt="MyBooks Logo" />
-    <h4 class ="logo">MyBooks</h4>
-    <p class="page-header">{{ title }}</p>
+  <mat-toolbar-row>
+    <span class="header-elements">
+      <span class class="logo" (click)="backToLandingPage()">
+        <img src="icon_small.png" alt="MyBooks Logo" />
+      <h4 class ="logo-text">MyBooks</h4>
+      </span>
+      <p class="page-header">{{ title }}</p>
+    </span>
   </mat-toolbar-row>
 </mat-toolbar>
