@@ -44,12 +44,22 @@ export class FormComponent implements OnInit{
   }
 
   saveBook(){
-    this.bookService.addBook(this.book).subscribe({
+    if(this.book.id === ''){
+     this.bookService.addBook(this.book).subscribe({
       next: (response) => {
         this.router.navigate(['']);
       },
         error: (error) => console.error('Error creating book:', error)
-      });
+     });
+    } else{
+      this.bookService.changeBook(this.book).subscribe({
+        next: (response)  => {
+          this.router.navigate(['']);
+        },
+          error: (error) => console.error('Error creating book:', error)
+        });
+      })
+    }
     this.router.navigate(['']);
   }
 
