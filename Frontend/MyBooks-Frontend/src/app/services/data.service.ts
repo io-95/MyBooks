@@ -14,12 +14,6 @@ export class DataService {
   }
 
   setDefaultData(){
-    this.data = {
-      "id": '',
-      "title": '',
-      "author": '',
-      "publishingYear": 0,
-      "isbn": ''
-    };
+    this.data = undefined;
   }
 }

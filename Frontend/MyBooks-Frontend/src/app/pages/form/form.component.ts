@@ -22,7 +22,7 @@ export class FormComponent implements OnInit{
     private bookService: BookService,
     private dataService: DataService) {}
 
-  title = 'Add new Book';
+  title = '';
 
   book: Book = {
     "id": '',
