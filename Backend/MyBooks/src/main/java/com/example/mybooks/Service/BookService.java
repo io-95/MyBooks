@@ -25,12 +25,13 @@ public class BookService {
     public Book save(Book book){
         return bookRepository.save(book);
     }
-
     public Book updateBook(Book newBook, UUID id){
         return bookRepository.findById(id)
                 .map(book -> {
                     book.setTitle(newBook.getTitle());
                     book.setAuthor(newBook.getAuthor());
+                    book.setPublishingYear(newBook.getPublishingYear());
+                    book.setIsbn(newBook.getIsbn());
                     return bookRepository.save(book);
                 })
                 .orElseGet(() -> {
