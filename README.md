@@ -32,8 +32,3 @@ Als REST URL wurde `/api/v1/books` verwendet. Es wurde auch eine Versionsnummer 
 
 Aufgrund von Zeitmangel konnten die Bonusaufgaben, die in der Datei  
 `Fullstack Coding Challenge.pdf` definiert sind, nicht umgesetzt werden.
-
-Bei den grundlegenden Funktionen besteht derzeit das Problem, dass im Frontend die Button-Click-Events  
-nicht ausgelöst werden. Dadurch kann die Formularseite zum Anlegen eines neuen Buchs nicht über das UI erreicht werden.  
-Sie ist jedoch direkt unter `http://localhost:4200/form` aufrufbar.  
-Die Event-Bindings der Buttons auf der Formular Seite konnten ebenfalls nicht implementiert werden.
