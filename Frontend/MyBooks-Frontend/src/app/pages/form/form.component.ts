@@ -22,6 +22,8 @@ export class FormComponent implements OnInit{
     private bookService: BookService,
     private dataService: DataService) {}
 
+  title = 'Add new Book';
+
   book: Book = {
     "id": '',
     "title": '',
@@ -33,8 +35,12 @@ export class FormComponent implements OnInit{
   ngOnInit(){
     const bookData = this.dataService.getData();
     if(bookData) {
+      this.title = 'Change Book';
       this.book = bookData;
-    }
+      return;
+    } else {
+        this.title = 'Add new Book';
+      }
   }
 
   saveBook(){
@@ -48,6 +54,7 @@ export class FormComponent implements OnInit{
   }
 
   switchToLandingPage(){
+    this.dataService.setDefaultData();
     this.router.navigate(['']);
   }
 }

@@ -12,4 +12,14 @@ export class DataService {
   getData(): Book | undefined {
     return this.data;
   }
+
+  setDefaultData(){
+    this.data = {
+      "id": '',
+      "title": '',
+      "author": '',
+      "publishingYear": 0,
+      "isbn": ''
+    };
+  }
 }
