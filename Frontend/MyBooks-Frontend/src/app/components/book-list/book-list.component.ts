@@ -6,6 +6,8 @@ import { Book } from '../../models/book.model';
 import { MatIconModule } from '@angular/material/icon';
 import { ChangeDetectorRef } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
+import { DataService } from '../../services/data.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -22,7 +24,9 @@ export class BookListComponent implements OnInit {
   error: string | null = null;
 
   constructor(private bookService: BookService,
-    private cdr: ChangeDetectorRef) {}
+    private cdr: ChangeDetectorRef,
+    private dataService: DataService,
+    private router: Router) {}
 
   ngOnInit() {
     this.bookService.getBooks().subscribe({
@@ -40,8 +44,8 @@ export class BookListComponent implements OnInit {
   }
 
   editBook(book: Book) {
-    console.log('Edit Book:', book);
-    // hier könntest du z.B. ein Dialog öffnen oder Router navigieren
+    this.dataService.setData(book);
+    this.router.navigate(['/form']);
   }
 
   deleteBook(book: Book) {
