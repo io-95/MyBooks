@@ -2,7 +2,6 @@ package com.example.mybooks.Service;
 
 import com.example.mybooks.Interface.BookRepository;
 import com.example.mybooks.Model.Book;
-import jdk.dynalink.linker.LinkerServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -26,12 +25,13 @@ public class BookService {
     public Book save(Book book){
         return bookRepository.save(book);
     }
-
     public Book updateBook(Book newBook, UUID id){
         return bookRepository.findById(id)
                 .map(book -> {
                     book.setTitle(newBook.getTitle());
                     book.setAuthor(newBook.getAuthor());
+                    book.setPublishingYear(newBook.getPublishingYear());
+                    book.setIsbn(newBook.getIsbn());
                     return bookRepository.save(book);
                 })
                 .orElseGet(() -> {

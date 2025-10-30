@@ -32,5 +32,3 @@ Als REST URL wurde `/api/v1/books` verwendet. Es wurde auch eine Versionsnummer 
 
 Aufgrund von Zeitmangel konnten die Bonusaufgaben, die in der Datei  
 `Fullstack Coding Challenge.pdf` definiert sind, nicht umgesetzt werden.
-
-Aktuell wurden die Event-Bindings der Buttons auf der Formular Seite und Landing Page noch nicht implementiert, die Formular Seite ist aber über den Link `localhost:4200/form` erreichbar.

@@ -1,14 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-
-export interface Book {
-  id: string;
-  title: string;
-  author: string;
-  publishingYear: number;
-  isbn: string;
-}
+import { Book } from '../models/book.model';
 
 @Injectable({ providedIn: 'root' })
 export class BookService {
@@ -21,6 +14,10 @@ export class BookService {
 
   addBook(book: Book): Observable<Book> {
     return this.http.post<Book>(this.apiUrl, book);
+  }
+
+  changeBook(book: Book): Observable<Book> {
+    return this.http.put<Book>(`${this.apiUrl}/${book.id}`, book);
   }
 
   deleteBook(id: string): Observable<void> {
