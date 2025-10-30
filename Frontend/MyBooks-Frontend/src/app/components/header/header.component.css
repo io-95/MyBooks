@@ -28,7 +28,11 @@
 .page-header {
   font-size: medium;
   font-weight: normal;
-  margin: 0 auto;
+  margin: 0;
+}
+
+.spacer{
+  flex: 1 1 auto;
 }
 
 .toolbar{
