@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import {MatToolbarModule} from '@angular/material/toolbar';
+import { DataService } from '../../services/data.service';
 
 @Component({
   selector: 'app-header',
@@ -10,11 +11,13 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 })
 
 export class HeaderComponent {
-  constructor(private router: Router) {}
+  constructor(private router: Router,
+    private dataService: DataService) {}
 
   title = 'Book List'
 
   backToLandingPage(){
+    this.dataService.setDefaultData();
     this.router.navigate(['']);
   }
 }
