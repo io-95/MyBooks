@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {MatCardModule} from '@angular/material/card';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { Book } from '../../models/book.model';
 import { BookService } from '../../services/book.service';
+import { DataService } from '../../services/data.service';
 
 
 @Component({
@@ -16,8 +17,10 @@ import { BookService } from '../../services/book.service';
   imports: [MatCardModule, MatFormFieldModule, MatButtonModule, MatInputModule, FormsModule],
 })
 
-export class FormComponent {
-  constructor(private router: Router, private bookService: BookService) {}
+export class FormComponent implements OnInit{
+  constructor(private router: Router,
+    private bookService: BookService,
+    private dataService: DataService) {}
 
   book: Book = {
     "id": '',
@@ -26,6 +29,13 @@ export class FormComponent {
     "publishingYear": 0,
     "isbn": ''
   };
+
+  ngOnInit(){
+    const bookData = this.dataService.getData();
+    if(bookData) {
+      this.book = bookData;
+    }
+  }
 
   saveBook(){
     this.bookService.addBook(this.book).subscribe({
