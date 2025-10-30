@@ -23,12 +23,9 @@
   color: white;
   border-radius: 6px;
   border: none;
-  display: flex;
   align-items: center;
   gap: 8px;
   height: 40px;
-  position: fixed;
-  right: 100px;
 }
 
 .input{
