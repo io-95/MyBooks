@@ -35,6 +35,7 @@ export class FormComponent implements OnInit{
   ngOnInit(){
     const bookData = this.dataService.getData();
     if(bookData) {
+      // is executed if edit button put the data in data service
       this.title = 'Change Book';
       this.book = bookData;
       return;
@@ -44,6 +45,7 @@ export class FormComponent implements OnInit{
   }
 
   saveBook(){
+    // is called if book has no id
     if(this.book.id === ''){
      this.bookService.addBook(this.book).subscribe({
       next: (response) => {
@@ -52,6 +54,7 @@ export class FormComponent implements OnInit{
         error: (error) => console.error('Error creating book:', error)
      });
     } else{
+      // is called if the book exists in the db and already has an id
       this.bookService.changeBook(this.book).subscribe({
         next: (response)  => {
           this.router.navigate(['']);
