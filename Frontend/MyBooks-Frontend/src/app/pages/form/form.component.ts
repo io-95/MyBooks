@@ -62,7 +62,6 @@ export class FormComponent implements OnInit{
           error: (error) => console.error('Error creating book:', error)
       });
     }
-    this.router.navigate(['']);
   }
 
   switchToLandingPage(){
