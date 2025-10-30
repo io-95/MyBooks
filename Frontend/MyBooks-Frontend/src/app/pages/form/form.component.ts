@@ -57,8 +57,7 @@ export class FormComponent implements OnInit{
           this.router.navigate(['']);
         },
           error: (error) => console.error('Error creating book:', error)
-        });
-      })
+      });
     }
     this.router.navigate(['']);
   }
