@@ -4,10 +4,9 @@
   font-family: roboto, sans-serif;
   width: 672px;
   padding-bottom: 30px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  margin: 30px auto;
+  position: relative;
+  transform: none;
   background: white;
   border-color: #dee1e6;
 }
