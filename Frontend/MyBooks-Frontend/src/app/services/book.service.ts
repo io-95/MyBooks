@@ -13,8 +13,11 @@ export class BookService {
   }
 
   addBook(book: Book): Observable<Book> {
-    console.log(book);
     return this.http.post<Book>(this.apiUrl, book);
+  }
+
+  changeBook(book: Book): Observable<Book> {
+    return this.http.put<Book>(`${this.apiUrl}/${book.id}`, book);
   }
 
   deleteBook(id: string): Observable<void> {
