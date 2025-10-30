@@ -4,6 +4,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
 import { Router } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 import { Book } from '../../models/book.model';
 import { BookService } from '../../services/book.service';
 
@@ -12,31 +13,27 @@ import { BookService } from '../../services/book.service';
   selector: 'app-form',
   templateUrl: './form.component.html',
   styleUrls: ['./form.component.css'],
-  imports: [MatCardModule, MatFormFieldModule, MatButtonModule, MatInputModule],
+  imports: [MatCardModule, MatFormFieldModule, MatButtonModule, MatInputModule, FormsModule],
 })
 
 export class FormComponent {
   constructor(private router: Router, private bookService: BookService) {}
 
-  private book: Book = {
-    "title" = '',
-    "author" = '',
-    "publishingYear" = '',
-    "isbn" = ''
+  book: Book = {
+    "id": '',
+    "title": '',
+    "author": '',
+    "publishingYear": 0,
+    "isbn": ''
   };
 
-  title = '';
-  author = '';
-  publishingYear = '';
-  isbn = '';
-
   saveBook(){
-    this.book.title = this.title;
-    this.book.author = this.author;
-    this.book.publishingYear = Number(this.publishingYear);
-    this.book.isbn = this.isbn;
-
-    this.bookService.addBook(this.book);
+    this.bookService.addBook(this.book).subscribe({
+      next: (response) => {
+        this.router.navigate(['']);
+      },
+        error: (error) => console.error('Error creating book:', error)
+      });
     this.router.navigate(['']);
   }
 

@@ -7,32 +7,32 @@
     <p class="text">Title*</p>
     <mat-form-field appearance="outline" class="input">
       <mat-label>type here the title of the book</mat-label>
-      <input matInput [(ngModel)]="title">
+      <input matInput [(ngModel)]="book.title">
     </mat-form-field>
 
     <p class="text">Author*</p>
     <mat-form-field appearance="outline" class="input">
       <mat-label>type here the author of the book</mat-label>
-      <input matInput [(ngModel)]="author">
+      <input matInput [(ngModel)]="book.author">
     </mat-form-field>
 
     <p class="text">Publishing Year(Optional)</p>
     <mat-form-field appearance="outline" class="input">
       <mat-label>type here the publishing year of the book</mat-label>
-      <input matInput [(ngModel)]="publishingYear">
+      <input matInput [(ngModel)]="book.publishingYear">
     </mat-form-field>
 
     <p class="text">ISBN(Optional)</p>
     <mat-form-field appearance="outline" class="input">
       <mat-label>type here the ISBN of the book</mat-label>
-      <input matInput [(ngModel)]="isbn">
+      <input matInput [(ngModel)]="book.isbn">
     </mat-form-field>
     <div class="button_div">
-      <button matFab extended class="cancel_button" (click)="switchToLandingPage()">
+      <button mat-fab extended class="cancel_button" (click)="switchToLandingPage()">
         Cancel
       </button>
 
-      <button matFab extended class="save_button">
+      <button mat-fab extended class="save_button" (click)="saveBook()">
         Save Book
       </button>
     </div>
