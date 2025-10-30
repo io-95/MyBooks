@@ -1,38 +1,39 @@
 <div class="page-container">
   <mat-card appearance="outlined" class="card">
     <mat-card-header class="header">
-      <h4>Add New Book</h4>
+      <h4>{{ title }}</h4>
     </mat-card-header>
 
     <p class="text">Title*</p>
     <mat-form-field appearance="outline" class="input">
-      <mat-label></mat-label>
-      <input matInput placeholder="Search by title or author...">
+      <mat-label>type here the title of the book</mat-label>
+      <input matInput [(ngModel)]="book.title">
     </mat-form-field>
 
     <p class="text">Author*</p>
     <mat-form-field appearance="outline" class="input">
-      <mat-label></mat-label>
-      <input matInput placeholder="Search by title or author...">
+      <mat-label>type here the author of the book</mat-label>
+      <input matInput [(ngModel)]="book.author">
     </mat-form-field>
 
     <p class="text">Publishing Year(Optional)</p>
     <mat-form-field appearance="outline" class="input">
-      <mat-label></mat-label>
-      <input matInput placeholder="Search by title or author...">
+      <mat-label>type here the publishing year of the book</mat-label>
+      <input matInput [(ngModel)]="book.publishingYear">
     </mat-form-field>
 
     <p class="text">ISBN(Optional)</p>
     <mat-form-field appearance="outline" class="input">
-      <mat-label></mat-label>
-      <input matInput placeholder="Search by title or author...">
+      <mat-label>type here the ISBN of the book</mat-label>
+      <input matInput [(ngModel)]="book.isbn">
     </mat-form-field>
+
     <div class="button_div">
-      <button matFab extended class="cancel_button">
+      <button mat-fab extended class="cancel_button" (click)="switchToLandingPage()">
         Cancel
       </button>
 
-      <button matFab extended class="save_button">
+      <button mat-fab extended class="save_button" (click)="saveBook()">
         Save Book
       </button>
     </div>
