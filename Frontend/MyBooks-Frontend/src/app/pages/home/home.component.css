@@ -3,6 +3,8 @@
 .div{
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  margin-right: 5.5%;
 }
 
 .header{
