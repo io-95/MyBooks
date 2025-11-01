@@ -5,17 +5,18 @@ import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 
-
 import org.junit.jupiter.api.Test;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.web.servlet.MockMvc;
 
 @SpringBootTest
 @AutoConfigureMockMvc
-public class MyBooksBookControllerTets {
+@ActiveProfiles("test")
+public class MyBooksBookControllerTests {
     
     @Autowired
 	private MockMvc mockMvc;
@@ -25,9 +26,8 @@ public class MyBooksBookControllerTets {
         this.mockMvc.perform(get("/books")).andDo(print())
                         .andExpect(status().isOk())
                         .andExpect(jsonPath("$.length()").value(5))
-                        .andExpect(jsonPath("$[*].id").exists())
-                        .andExpect(jsonPath("$[*].title").exists())
-                        .andExpect(jsonPath("$[*].author").exists());
+                        .andExpect(jsonPath("$[*].id").isNotEmpty())
+                        .andExpect(jsonPath("$[*].title").isNotEmpty())
+                        .andExpect(jsonPath("$[*].author").isNotEmpty());
     }
-    
 }
