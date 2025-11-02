@@ -10,6 +10,8 @@ import java.util.UUID;
 
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,12 +44,25 @@ public class MyBooksBookControllerTests {
     @Autowired
     private BookRepository bookRepository;
 
-    @Test
-    void shouldDeleteBookInDb() throws Exception{
+    private UUID mockUuid;
+
+    @BeforeEach
+    @Tag("withDbEntry")
+    void addMockBook(){
         Book mockBook = new Book("Test Title", "Author", 2024, "123456");
         mockBook = bookRepository.save(mockBook);
-        UUID mockUuid = mockBook.getId();
+        this.mockUuid = mockBook.getId();
+    }
 
+    @Test
+    @Tag("withDbEntry")
+    void shouldReturnSingleBookById() throws Exception{
+        
+    }
+
+    @Test
+    @Tag("withDbEntry")
+    void shouldDeleteBookInDb() throws Exception{
         this.mockMvc.perform(delete("/books/{mockUuid}", mockUuid))
                         .andExpect(status().isOk());
 
