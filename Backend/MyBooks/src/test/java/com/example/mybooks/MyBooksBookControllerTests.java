@@ -3,6 +3,7 @@ package com.example.mybooks;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -70,6 +71,22 @@ public class MyBooksBookControllerTests {
                         .andExpect(jsonPath("$.author").value(mockBook.getAuthor()))
                         .andExpect(jsonPath("$.publishingYear").value(mockBook.getPublishingYear()))
                         .andExpect(jsonPath("$.isbn").value(mockBook.getIsbn()));       
+    }
+
+    @Test
+    void shouldReturnAddedBook() throws Exception{
+        this.mockMvc.perform(post("/books")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content("""
+                            {
+                                "title": "Test Title",
+                                "author": "Author",
+                                "publishingYear": 2024,
+                                "isbn": "123456"
+                            }
+                        """))
+                        .andExpect(content().contentType(MediaType.APPLICATION_JSON))
+                        .andExpect(null);
     }
 
     @Test
