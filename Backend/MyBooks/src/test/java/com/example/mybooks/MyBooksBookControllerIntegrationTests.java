@@ -30,7 +30,7 @@ import com.example.mybooks.Model.Book;
 @SpringBootTest
 @AutoConfigureMockMvc
 @ActiveProfiles("test")
-public class MyBooksBookControllerTests {
+public class MyBooksBookControllerIntegrationTests {
     
     @Autowired
 	private MockMvc mockMvc;
