@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -85,11 +86,35 @@ public class MyBooksBookControllerTests {
                                 "isbn": "123456"
                             }
                         """))
+                        .andExpect(status().isOk())
                         .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                         .andExpect(jsonPath("$.id").isNotEmpty())
                         .andExpect(jsonPath("$.title").value("Test Title"))
                         .andExpect(jsonPath("$.author").value("Author"))
                         .andExpect(jsonPath("$.publishingYear").value(2024))
+                        .andExpect(jsonPath("$.isbn").value("123456"));
+    }
+
+    @Test
+    @Tag("withDbEntry")
+    void shouldReturnBookWithChangedValues() throws Exception{
+        this.mockMvc.perform(put("/books/{id}", mockUuid)
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(
+                            """
+                            {
+                                "title": "My Book",
+                                "author": "John Doe",
+                                "publishingYear": 2025,
+                                "isbn": "123456"
+                            }
+                        """))
+                        .andExpect(status().isOk())
+                        .andExpect(content().contentType(MediaType.APPLICATION_JSON))
+                        .andExpect(jsonPath("$.id").value(this.mockUuid.toString()))
+                        .andExpect(jsonPath("$.title").value("My Book"))
+                        .andExpect(jsonPath("$.author").value("John Doe"))
+                        .andExpect(jsonPath("$.publishingYear").value(2025))
                         .andExpect(jsonPath("$.isbn").value("123456"));
     }
 
