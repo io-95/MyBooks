@@ -86,7 +86,11 @@ public class MyBooksBookControllerTests {
                             }
                         """))
                         .andExpect(content().contentType(MediaType.APPLICATION_JSON))
-                        .andExpect(null);
+                        .andExpect(jsonPath("$.id").isNotEmpty())
+                        .andExpect(jsonPath("$.title").value("Test Title"))
+                        .andExpect(jsonPath("$.author").value("Author"))
+                        .andExpect(jsonPath("$.publishingYear").value(2024))
+                        .andExpect(jsonPath("$.isbn").value("123456"));
     }
 
     @Test
