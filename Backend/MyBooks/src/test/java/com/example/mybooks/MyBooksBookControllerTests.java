@@ -8,12 +8,14 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 import java.util.UUID;
 
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
-
+import org.junit.jupiter.api.TestInfo;
+import org.springframework.http.MediaType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -45,19 +47,29 @@ public class MyBooksBookControllerTests {
     private BookRepository bookRepository;
 
     private UUID mockUuid;
+    private Book mockBook;
 
     @BeforeEach
     @Tag("withDbEntry")
-    void addMockBook(){
-        Book mockBook = new Book("Test Title", "Author", 2024, "123456");
-        mockBook = bookRepository.save(mockBook);
-        this.mockUuid = mockBook.getId();
+    void addMockBook(TestInfo testInfo){
+        if(testInfo.getTags().contains("withDbEntry")){
+            this.mockBook = new Book("Test Title", "Author", 2024, "123456");
+            this.mockBook = bookRepository.save(this.mockBook);
+            this.mockUuid = mockBook.getId();
+        }
     }
 
     @Test
     @Tag("withDbEntry")
     void shouldReturnSingleBookById() throws Exception{
-        
+        this.mockMvc.perform(get("/books/{mockUuid}", mockUuid))
+                        .andExpect(status().isOk())
+                        .andExpect(content().contentType(MediaType.APPLICATION_JSON))
+                        .andExpect(jsonPath("$.id").value(mockBook.getId().toString()))
+                        .andExpect(jsonPath("$.title").value(mockBook.getTitle()))
+                        .andExpect(jsonPath("$.author").value(mockBook.getAuthor()))
+                        .andExpect(jsonPath("$.publishingYear").value(mockBook.getPublishingYear()))
+                        .andExpect(jsonPath("$.isbn").value(mockBook.getIsbn()));       
     }
 
     @Test
